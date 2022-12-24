@@ -13,6 +13,8 @@ def on_connect(client, userdata, flags, rc):
     loop_flag = 0
 
 client = mqtt.Client("paho")
+client.username_pw_set("picow", "picow")
+client.will_set("info", "paho disconnected")
 client.on_connect = on_connect
 client.connect("192.168.1.24")
 client.loop_start()
